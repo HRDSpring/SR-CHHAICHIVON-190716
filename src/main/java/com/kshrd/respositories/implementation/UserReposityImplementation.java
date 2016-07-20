@@ -91,6 +91,25 @@ public class UserReposityImplementation  implements UserRepository{
 		}	
 		return false;
 	}
+
+	@Override
+	public boolean deleteUser(int userId) {
+		String sql="DELETE FROM tbluser WHERE id=?";
+		User user = new User();
+		try{
+			cnn = dataSource.getConnection();
+			PreparedStatement ps =cnn.prepareStatement(sql);
+			ps.setInt(1, user.getId());
+			ps.setString(2, user.getUsername());
+			ps.setString(3, user.getCl_room());
+			if(ps.executeUpdate()>0){
+				return true;
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return false;
+	}
 	
 	
 }

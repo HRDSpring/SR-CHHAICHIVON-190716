@@ -22,6 +22,9 @@
 </head>
 <!--/head-->
 	<div class="container">
+			<div col-md-12>
+				<center><h2>Spring Home Work</h2></center>
+			</div>
               <!-- form add person -->
 			 <button type="button" id="btnTopAdd" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus" aria-hidden="true"></i>Add New Person</button>
 
@@ -71,10 +74,10 @@
 						ArrayList<User> users = (ArrayList)request.getAttribute("users");
 						if(users.size()!= 0){
 							for(int i=0;i<users.size();i++){%>
-							
 								<td><%=users.get(i).getId()%></td>
 								<td><%=users.get(i).getUsername()%></td>
 								<td><%=users.get(i).getCl_room()%></td>
+								<td><input type="button" value="Edit"><input type="button" value="Delete"></td>
 							 </tr>
 						   <%}
 						}%>

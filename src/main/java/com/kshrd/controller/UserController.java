@@ -33,13 +33,13 @@ public class UserController {
 		return "home";
 	}
 	
-	@RequestMapping(value={"/addUser","/add"}, method = RequestMethod.GET)
+	@RequestMapping(value={"/adduser","/add","/"}, method = RequestMethod.GET)
 	public String addUser(User user,ModelMap model){
 		model.addAttribute("user" , new User());
 		return "add";
 	}
 	
-	@RequestMapping(value={"/addUser","/add"}, method = RequestMethod.POST)
+	@RequestMapping(value={"/adduser","/add"}, method = RequestMethod.POST)
 	public String register(User user, ModelMap model){
 		boolean b = userService.insertUser(user);
 		if(b){
@@ -48,6 +48,7 @@ public class UserController {
 		else return "";
 	
 	}
+	
 	
 	
 	

@@ -11,14 +11,26 @@
 
 <h3>${message}</h3>
 <mvc:form action="${pageContext.request.contextPath}/add" modelAttribute="user" method="POST">
-	
-	ID : 
-	<mvc:input path="id"/> <br/>
-	Username : 
-	<mvc:input path="username"/> <br/>
-	Cl_Room : 
-	<mvc:input path="cl_room"/> <br/>
-	<input type="submit">
+<center>
+	<h1>Add User</h1>
+	<table>
+		<tr>
+			<td>ID :</td>
+			<td><mvc:input path="id"/></td>
+		</tr>
+		<tr>
+			<td>Username :</td>
+			<td><mvc:input path="username"/></td>
+		</tr>
+		<tr>
+			<td>Cl_Room :</td>
+			<td><mvc:input path="cl_room"/></td>
+		</tr>
+		<tr>	
+			<td><input type="submit"></td>
+		</tr>
+	</table>
+</center>
 	
 </mvc:form>
 

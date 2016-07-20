@@ -31,4 +31,10 @@ public class UserServiceImplementation implements UserService{
 		return userRepository.insertUser(user);
 	}
 
+	@Override
+	public boolean deleteUser(int userId) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }
