@@ -2,8 +2,12 @@ package com.kshrd.services;
 
 import java.util.ArrayList;
 
+import org.springframework.stereotype.Service;
+
 import com.kshrd.model.User;
 
+
+@Service
 public interface UserService {
 		//getall user
 		public ArrayList<User> findUsers();

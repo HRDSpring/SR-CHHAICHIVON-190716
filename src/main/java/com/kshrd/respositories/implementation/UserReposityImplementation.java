@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import javax.sql.DataSource;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -20,6 +19,7 @@ public class UserReposityImplementation  implements UserRepository{
 	private DataSource dataSource; // get data source	
 	private Connection cnn; // declare connection
 	
+	//select
 	@Override
 	public ArrayList<User> findUsers() {
 		String sql = "SELECT "
@@ -47,10 +47,11 @@ public class UserReposityImplementation  implements UserRepository{
 		return arr;
 	}
 
+	//update
 	@Override
 	public boolean updateUser(User user) {
 		String sql = "UPDATE "
-				+ "		TBLUSER "
+				+ "	  tbluser "
 				+ "	  SET  "
 				+ "		username=? , "
 				+ "		cl_room=? "
@@ -71,9 +72,25 @@ public class UserReposityImplementation  implements UserRepository{
 		return false;
 	}
 
+	//insert 
 	@Override
 	public boolean insertUser(User user) {
-		// TODO Auto-generated method stub
+		String sql="INSERT INTO tbluser VALUES(?,?,?)";
+		try{
+			cnn = dataSource.getConnection();
+			PreparedStatement ps = cnn.prepareStatement(sql);
+			ps.setInt(1, user.getId());
+			ps.setString(2, user.getUsername());
+			ps.setString(3, user.getCl_room());
+			if(ps.executeUpdate()>0){
+				return true;
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+		}	
 		return false;
 	}
+	
+	
 }
